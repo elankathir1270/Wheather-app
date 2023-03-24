@@ -1,0 +1,130 @@
+  
+.home-container {
+    background-image: url("./media/sun.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.home-container h1 {
+    color: white;
+}
+.options a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.nav-item:hover {
+  color: rgb(47, 46, 46);
+}
+
+.options{
+    
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.homeInput{
+    display: flex;
+    height: 80vh;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+ 
+}
+
+.weatherDetails{
+    
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex: 1;
+   
+
+}
+table{
+  width: 300px;
+   height: 200px;
+   border: 1px solid white;
+   border-radius: 30px;
+   background: rgba(8, 8, 8, 0.3) ;
+   padding: 10px;
+   
+
+}
+
+td{
+    font-size: 20px;
+}
+th{
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+.weatherStatus{
+  
+    display: flex;
+    height: fit-content;
+    width: fit-content;
+    flex: 1;
+    justify-content: center;
+   
+   
+}
+.temp{
+    font-size: 4rem;
+    padding: 0;
+    margin: 0;
+}
+.location{
+    display:flex;
+    flex-direction: column;
+    margin-left: 15px;
+    color: white;
+    
+}
+.location h3{
+    font-size: 2em;
+}
+.location p{
+    font-size: 1em;
+}
+
+
+.fromleft {
+    animation-name: fromleft;
+    animation-duration: 3s;
+  }
+  .fromright {
+    animation-name: fromright;
+    animation-duration: 3s;
+  }
+  
+  @keyframes fromleft {
+    0% {
+      transform: translateX(-120px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0px);
+      opacity: 1;
+    }
+  }
+  @keyframes fromright {
+    0% {
+      transform: translateX(200px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0px);
+      opacity: 1;
+    }
+  }
