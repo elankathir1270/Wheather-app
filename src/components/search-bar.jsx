@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import "./searchbar.css";
+import { SearchIcon } from "./searchIcon";
 
 const SearchBar = ({ placeholder, data, handleSelect }) => {
   const [filteredData, setFilteredData] = useState([]);
@@ -43,7 +44,7 @@ const SearchBar = ({ placeholder, data, handleSelect }) => {
         />
         <div className="searchIcon">
           {filteredData.length === 0 ? (
-            <h2>O</h2>
+            <SearchIcon />
           ) : (
             <h2 id="clearBtn" onClick={clearInput}>
               X
