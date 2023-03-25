@@ -10,7 +10,7 @@ const SearchBar = ({ placeholder, data, handleSelect }) => {
     const searchWord = event.target.value
     setSearchVal(searchWord)
     const newFilter = data.filter((val) => {
-      return val.city_name.toLowerCase().includes(searchWord.toLowerCase());
+      return val.toLowerCase().includes(searchWord.toLowerCase());
     });
     setFilteredData(newFilter)
   };
@@ -58,9 +58,9 @@ const SearchBar = ({ placeholder, data, handleSelect }) => {
               <a
                 key={index}
                 className="dataItem"
-                onClick={() => handleOnSelect(item.city_name)}
+                onClick={() => handleOnSelect(item)}
               >
-                <p>{item.city_name}</p>
+                <p>{item}</p>
               </a>
             );
           })}

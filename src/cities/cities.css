@@ -39,81 +39,54 @@
     
 }
 
+.thunderBg, .sunnyBg, .rainyBg{
+    height: 250px;
+    width: 250px;
+    padding: 15px;
+    font-size: 25px;
+    font-weight: bold;
+    display: flex;
+    align-items: end;
+    justify-content: flex-end;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-image: url("./media/chennai.jpg");
+    background-position: center;
+    background-size: cover;
+    color: rgb(255, 245, 245);  
+}
+
 .thunder{
-    
     margin: 15px;
     border-radius: 20px;
     box-shadow: 5px 10px 8px #888888;
     height: 375px;
-   
-    
 }
+
 .thunderBg{
-    height: 250px;
-    width: 250px;
-    padding: 15px;
-    font-size: 20px;
-    display: flex;
-    align-items: end;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    background-image: url("./media/normal.jpg");
-    background-position: center;
-    background-size: cover;
-    color: white;
-    
+    background-image: url("./media/chennai.jpg");
 }
 
 .Sunny{
-   
     margin: 15px;
     border-radius: 20px;
     box-shadow: 5px 10px 8px #888888;
-    height: 375px;
-    
-    
+    height: 375px;   
 }
 
 .sunnyBg{
-    height: 250px;
-    width: 250px;
-    padding: 15px;
-    font-size: 20px;
-    display: flex;
-    align-items: end;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    background-image: url("./media/cloud.jpg");
-    background-position: center;
-    background-size: cover;
-    color: white;
-    
+    background-image: url("./media/mumbai.jpg");
 }
 
 .Rainy{
-   
     margin: 15px;
     border-radius: 20px;
     box-shadow: 5px 10px 8px #888888;
-    height: 375px;
-    
-    
+    height: 375px; 
 }
 
 .rainyBg{
-    height: 250px;
-    width: 250px;
-    padding: 15px;
-    font-size: 20px;
-    display: flex;
-    align-items: end;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    background-image: url("./media/wind.jpg");
-    background-position: center;
-    background-size: cover;
-    color: white;
-   
+    background-image: url("./media/bangalore.jpg");  
 }
 
 .cityContainer{
@@ -152,9 +125,20 @@
     animation-name: fromRight;
     animation-duration: 1.5s;
 }
-.fromTop{
-    animation-name: fromTop;
+.scale-Up{
+    animation-name: scaleUp;
     animation-duration: 1.5s;
+}
+
+@keyframes scaleUp {
+    0%{
+        transform: scale(1.5);
+        opacity: 0;
+    }
+    100%{
+        transform: scale(1);
+        opacity: 1;
+    }    
 }
 
 @keyframes fromLeft {
@@ -180,17 +164,7 @@
     }    
 
 }
-@keyframes fromTop {
-    0%{
-        transform: translateY(120px);
-        opacity: 0;
-    }
-    100%{
-        transform: translateY(0);
-        opacity: 1;
-    }    
 
-}
 
 
 .resultBody{
