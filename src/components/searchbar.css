@@ -16,7 +16,7 @@
     font-size: 18px;
     padding: 15px;
     height: 30px;
-    width: 400px;
+    width: calc(200px + 20vw);
   }
   
   .searchIcon {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import SearchBar from "../components/search-bar";
 import "./cities.css";
-import citiesData from "./../services/indianCities.json";
+import citiesData from "./../services/cities.json";
 import { wheatherData } from "../common/commonObjects";
 import { wheatherApi } from "../services/wheatherAPI";
 
@@ -14,9 +14,11 @@ const Cities = () => {
   const leftCardRef = useRef(null)
   const rightCardRef = useRef(null)
   const middleCardRef = useRef(null)
+  const whDetailsCardRef = useRef(null)
   const [leftCdVisibility, setLeftCdVisibility] = useState();
   const [middleCdVisibility, setMiddleCdVisibility] = useState();
   const [rightCdVisibility, setRightCdVisibility] = useState();
+  const [whDetailsVisibility, setWhDetailsVisibility] = useState();
 
   const apiCall = (location, card) => {
     const isPosition = typeof location === "object";
@@ -47,12 +49,24 @@ const Cities = () => {
         });
       })
       .catch((e) => {
-        console.log("e", e.message);
+        console.log("e", e);
+        card({
+          temp_c: "-",
+          location_name: "No data",
+          last_updated: "No data",
+          wind_kph: "No data",
+          humidity: "No data",
+          cloud: "No data",
+          condition: "No data",
+          temp_f: "No data",
+          lat: "No data",
+          lon: "No data",
+          region: "No data",
+        });
       });
   };
 
   const handleSelect = (result) => {
-    console.log("search result: ", result);
     apiCall(result, setSearchResult);
   };
 
@@ -73,10 +87,15 @@ const Cities = () => {
         const entry3 = entries[0]
         setRightCdVisibility(entry3.isIntersecting)
     })
+    const whDetailsObserver = new IntersectionObserver((entries) => {
+      const entry4 = entries[0]
+      setWhDetailsVisibility(entry4.isIntersecting)
+  })
 
     leftCardObserver.observe(leftCardRef.current)
     middleCardObserver.observe(middleCardRef.current)
     rightCardObserver.observe(rightCardRef.current)
+    whDetailsObserver.observe(whDetailsCardRef.current)
   }, []);
 
   return (
@@ -101,7 +120,7 @@ const Cities = () => {
           </div>
         </div>
 
-        <div ref={middleCardRef} className={`Sunny ${middleCdVisibility && "fromTop"}`}>
+        <div ref={middleCardRef} className={`Sunny ${middleCdVisibility && "scale-Up"}`}>
           <div className="sunnyBg">{middleCard.condition}</div>
 
           <div className="cityContainer">
@@ -138,11 +157,11 @@ const Cities = () => {
           handleSelect={handleSelect}
         />
       </div>
+      <div ref={whDetailsCardRef}>
       {searchResult.temp_c ? (
         <div className="earth-image">
-            <div className="resultBody">
-                
-            <div className="locationInfo">
+            <div className="resultBody">         
+            <div className={`locationInfo ${whDetailsVisibility && "scale-Up"}`}>
                 <div className="locationInfo-data">
                 <h3>{searchResult.location_name}</h3>
                 <div>
@@ -162,7 +181,7 @@ const Cities = () => {
                                 <td className="r2">{searchResult.lon}</td>
                             </tr>
                             <tr className="tt">
-                                <td className="r1">Time</td>
+                                <td className="r1">Updated at</td>
                                 <td className="r2">{searchResult.last_updated}</td>
                             </tr>
                         </tbody>
@@ -171,10 +190,9 @@ const Cities = () => {
                 </div>
                 
             </div>
-            <div className="weatherInfo">
 
-             <div className="weatherInfo-data">
-                                   
+            <div className={`weatherInfo ${whDetailsVisibility && "scale-Up"}`}>
+             <div className="weatherInfo-data">                  
                  <h1>{searchResult.temp_c} &#8451;</h1>
                 <div>
                     <table className="box2">                      
@@ -212,6 +230,7 @@ const Cities = () => {
       ) : (
         <></>
       )}
+      </div>
     </div>
   );
 };

@@ -40,7 +40,7 @@ const News = () => {
         <div ref={leftCardRef} className={`news1 ${leftCdVisibility && "fromLeft"}`}>
           Thunder strikes Delhi</div>
 
-          <div ref={middleCardRef} className={`news2 ${middleCdVisibility && "fromTop"}`}>
+          <div ref={middleCardRef} className={`news2 ${middleCdVisibility && "scale-Up"}`}>
             So sunny in Delhi</div>
 
             <div ref={rightCardRef} className={`news3 ${rightCdVisibility && "fromRight"}`}>
